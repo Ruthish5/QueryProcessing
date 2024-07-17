@@ -1,0 +1,15 @@
+import yfinance as yf
+import pandas as pd
+import matplotlib.pyplot as plt
+ticker = "GOOGL"
+start_date = "2023-01-01"
+end_date = "2023-07-01"
+data = yf.download(ticker, start=start_date, end=end_date)
+plt.figure(figsize=(12, 6))
+plt.plot(data.index, data['Close'], label='Close Price')
+plt.xlabel('Date')
+plt.ylabel('Close Price')
+plt.title('Alphabet Inc. (GOOGL) Historical Stock Prices')
+plt.legend()
+plt.grid(True)
+plt.show()
