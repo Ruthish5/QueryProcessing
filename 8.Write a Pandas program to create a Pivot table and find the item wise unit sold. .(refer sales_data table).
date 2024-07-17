@@ -1,0 +1,10 @@
+import pandas as pd
+data = {
+    'Date': ['2023-07-01', '2023-07-02', '2023-07-03', '2023-07-04', '2023-07-05'],
+    'Item': ['Item_A', 'Item_B', 'Item_A', 'Item_C', 'Item_B'],
+    'Units_Sold': [10, 20, 15, 30, 25]
+}
+sales_data = pd.DataFrame(data)
+pivot_table = sales_data.pivot_table(values='Units_Sold', index='Item', aggfunc='sum')
+pivot_table.columns = ['Total_Units_Sold']
+print(pivot_table)
