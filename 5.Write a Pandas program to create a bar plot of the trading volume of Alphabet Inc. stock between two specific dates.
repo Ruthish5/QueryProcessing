@@ -1,0 +1,15 @@
+import yfinance as yf
+import pandas as pd
+import matplotlib.pyplot as plt
+ticker = "GOOGL"
+start_date = "2023-01-01"
+end_date = "2023-07-01"
+data = yf.download(ticker, start=start_date, end=end_date)
+plt.figure(figsize=(12, 6))
+plt.bar(data.index, data['Volume'], label='Trading Volume')
+plt.xlabel('Date')
+plt.ylabel('Volume')
+plt.title('Alphabet Inc. (GOOGL) Trading Volume')
+plt.legend()
+plt.grid(True)
+plt.show()
