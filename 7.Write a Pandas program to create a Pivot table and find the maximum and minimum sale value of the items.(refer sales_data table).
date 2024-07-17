@@ -1,0 +1,10 @@
+import pandas as pd
+data = {
+    'Date': ['2023-07-01', '2023-07-02', '2023-07-03', '2023-07-04', '2023-07-05'],
+    'Item': ['Item_A', 'Item_B', 'Item_A', 'Item_C', 'Item_B'],
+    'Sale_Value': [100, 200, 150, 300, 250]
+}
+sales_data = pd.DataFrame(data)
+pivot_table = sales_data.pivot_table(values='Sale_Value', index='Item', aggfunc=['max', 'min'])
+pivot_table.columns = ['Max_Sale_Value', 'Min_Sale_Value']
+print(pivot_table)
